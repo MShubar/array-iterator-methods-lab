@@ -12,7 +12,6 @@ const inventors = [
   { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
   { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
 ]
-
 const people = [
   'Becker, Carl',
   'Beckett, Samuel',
@@ -89,16 +88,7 @@ const comments = [
 ]
 
 /*
-Exercise 1: Array.prototype.filter()
-
-Filter the array of inventors into a new array containing only the inventors 
-born in the 1500's.
-
-- You have an array of inventors, each with a birth year listed by the property 
-  'year'.
-- Use the Array.prototype.filter() method to create a new array.
-- The new array, 'veryOldInventors', should only include inventors born between 
-  the years 1500 and 1599.
+Exercise 1: 
 */
 
 let veryOldInventors = []
@@ -114,28 +104,15 @@ console.log('Exercise 1 correct result: ', [
 ])
 
 /*
-Exercise 2: Array.prototype.map()
-
-Map the array of inventors into a new array. This new array should only contain
-objects with the inventors' first and last names.
-
-- For each inventor, return an object in this format: 
-  { first: "First Name", last: "Last Name" }.
-- The new array should be a collection of these objects, each representing an 
-  inventor with only their first and last names.
-
-Hint: Return a new object literal from the callback that looks like:
-      { first: "First Name", last: "Last Name" }
+Exercise 2:
 */
 
 let inventorNames = []
 
-// Complete the exercise in the space below:
 inventorNames = inventors.map((inventor) => {
   return [inventor.first, inventor.last]
 })
 
-// Check your work:
 console.log('Exercise 2 my result: ', inventorNames)
 console.log('Exercise 2 correct result: ', [
   { first: 'Albert', last: 'Einstein' },
@@ -153,21 +130,15 @@ console.log('Exercise 2 correct result: ', [
 ])
 
 /*
-Exercise 3: Array.prototype.sort()
-
-Sort the inventors by birth date in ascending order (from those born furthest in
-the past to those born most recently).
+Exercise 3: 
 */
 
 let sortedByBirthYear = []
-
-// Complete the exercise in the space below:
 
 sortedByBirthYear = inventors.sort((oldInventor, youngInventor) => {
   return oldInventor.year - youngInventor.year
 })
 
-// Check your work:
 console.log('Exercise 3 my result: ', sortedByBirthYear)
 console.log('Exercise 3 correct result: ', [
   { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
@@ -185,27 +156,15 @@ console.log('Exercise 3 correct result: ', [
 ])
 
 /* 
-Exercise 4: Array.prototype.find()
-
-Use Array.prototype.find() to identify the inventor with the first name 'Ada' 
-from an array of inventor objects
-
-- You have an array of objects, each representing an inventor with various 
-  properties including their first name.
-- Utilize the Array.prototype.find() method to locate the object for the 
-  inventor with the first name 'Ada'.
-- Assign the found inventor object to the variable inventorNamedAda
+Exercise 4: 
 */
 
 let inventorNamedAda = {}
-
-// Complete the exercise in the space below:
 
 inventorNamedAda = inventors.find((inventor) => {
   return inventor.first === 'Ada'
 })
 
-// Check your work:
 console.log('Exercise 4 my result: ', inventorNamedAda)
 console.log('Exercise 4 correct result: ', {
   first: 'Ada',
@@ -215,26 +174,15 @@ console.log('Exercise 4 correct result: ', {
 })
 
 /*
-Exercise 5: Array.prototype.map()
-
-Use the Array.prototype.map() method to reformat each name in the 'people' 
-array. The goal is to convert names from "Last, First" format to "First Last" 
-format.
-
-Hint: Use the String.prototype.split() method to separate the first and last 
-      names. You can split the string using ', ' as the separator.
-      After splitting the names, rearrange them to the "First Last" format.
+Exercise 5: 
 */
 
 let firstLast = []
-
-// Complete the exercise in the space below:
 
 firstLast = people.map((person, index) => {
   const splitName = person.split(',')
   return `${splitName[1]} ${splitName[0]}`
 })
-// Check your work:
 console.log('Exercise 5 my result: ', firstLast)
 console.log('Exercise 5 correct result: ', [
   'Carl Becker',
@@ -280,91 +228,89 @@ console.log('Exercise 5 correct result: ', [
 ])
 
 /*
-Exercise 6: Array.prototype.some()
-
-Determine if there is at least one person in the devs array who is 18 years 
-old or older.
-
-- You have an array of people with their respective ages.
-- Use the Array.prototype.some() method to check if any person in the array is 
-  18 years old or older.
-- Store the result (true or false) in the variable 'isAdultPresent'. 
+Exercise 6: 
 */
 
 let isAdultPresent = null
-
-// Complete the exercise in the space below:
 
 isAdultPresent = devs.some((dev) => {
   return 2024 - dev.year >= 18
 })
 
-// Check your work:
 console.log('Exercise 6 my result: ', isAdultPresent)
 console.log('Exercise 6 correct result: ', true)
 
 /*
-Exercise 7: Array.prototype.every()
-
-Use Array.prototype.every() to determine if every person in the devs array is 
-19 years old or older.
-
-- You have an array of individuals, each with their year of birth represented
-  by the 'year' property.
-- Use the Array.prototype.every() method to verify if every individual in the
-  array is at least 19 years old.
-- Store the result (true or false) in the variable 'isEveryone19OrOlder'.
+Exercise 7: 
 */
 
 let isEveryone19OrOlder = null
-
-// Complete the exercise in the space below:
 
 isEveryone19OrOlder = devs.every((dev) => {
   return 2024 - dev.year >= 19
 })
 
-// Check your work:
 console.log('Exercise 7 my result: ', isEveryone19OrOlder)
 console.log('Exercise 7 correct result: ', false)
 
 /*
-Exercise 8: Array.prototype.find()
-
-Use Array.prototype.find() to identify and retrieve the comment object with 
-a specific ID 823423 from an array of comment objects.
-
-- Assign the found comment object to the variable 'commentById'.
+Exercise 8: 
 */
 
 let commentById = {}
 
-// Complete the exercise in the space below:
-
 commentById = comments.find((comment) => {
   return comment.id === 823423
 })
-// Check your work:
 console.log('Exercise 8 my result: ', commentById)
 console.log('Exercise 8 correct result: ', { text: 'Super good', id: 823423 })
 
 /*
-Exercise 9: Array.prototype.findIndex()
-
-Determine the index of the comment that has a specific ID 123523 in an array 
-of comment objects.
-
-- Store the index in the variable 'idx'.
+Exercise 9:
 */
 
 let idx = null
-
-// Complete the exercise in the space below:
 
 idx = comments.findIndex((comment) => {
   return comment.id === 123523
 })
 
-// Check your work:
 console.log('Exercise 9 my result: ', idx)
 console.log('Exercise 9 correct result: ', 3)
+
+/*
+Level Up exercise 1:
+*/
+
+let totalYearsLived = 0
+
+totalYearsLived = inventors.reduce((accumulator, inventor) => {
+  return (accumulator += inventor.passed - inventor.year)
+}, 0)
+
+console.log('Level Up 1 my result: ', totalYearsLived)
+console.log('Level Up 1 correct result: ', 861)
+
+/*
+Level Up exercise 2: 
+*/
+
+let travelMethodCounts = {}
+
+travelMethodCounts = travelMethods.reduce((acc, method) => {
+  if (acc[method]) {
+    acc[method] = acc[method] + 1
+  } else {
+    acc[method] = 1
+  }
+  return acc
+}, {})
+
+console.log('Level Up 2 my result: ', travelMethodCounts)
+console.log('Level Up 2 correct result: ', {
+  car: 5,
+  truck: 3,
+  bike: 2,
+  walk: 2,
+  van: 2
+})
