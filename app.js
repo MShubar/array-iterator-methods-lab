@@ -110,7 +110,7 @@ Exercise 2:
 let inventorNames = []
 
 inventorNames = inventors.map((inventor) => {
-  return [inventor.first, inventor.last]
+  return { first: inventor.first, last: inventor.last }
 })
 
 console.log('Exercise 2 my result: ', inventorNames)
